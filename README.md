@@ -212,4 +212,4 @@ The resulting build loads only a few highly compressed files.
 
 Release History
 -------------
-* 20/11/2016 - Migrate project to STYLUS.
+* 20/11/2016 - 3.3.4 - Migrate project to STYLUS.

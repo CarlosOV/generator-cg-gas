@@ -1,5 +1,5 @@
 {
-  "name": "generator-cg-gas",
+  "name": "generator-go-gas",
   "version": "3.3.3",
   "description": "Yeoman Generator for Enterprise Angular projects, with Gulp Angular Sass",
   "keywords": [
@@ -8,8 +8,8 @@
     "gulp",
     "sass"
   ],
-  "homepage": "https://github.com/Lunatic83/generator-cg-gas",
-  "bugs": "https://github.com/Lunatic83/generator-cg-gas/issues",
+  "homepage": "https://github.com/CarlosOV/generator-go-gas",
+  "bugs": "https://github.com/CarlosOV/generator-go-gas/issues",
   "author": {
     "name": "Gaspare Scherma",
     "email": "gaspare.scherma@gmail.com",
@@ -18,7 +18,7 @@
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Lunatic83/generator-cg-gas.git"
+    "url": "git://github.com/CarlosOV/generator-go-gas.git"
   },
   "scripts": {
     "test": "mocha"

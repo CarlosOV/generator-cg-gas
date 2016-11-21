@@ -13,6 +13,7 @@ var pkg = require('./package');
 var karma = require('karma').server;
 var del = require('del');
 var _ = require('lodash');
+var nib = require('nib');
 /* jshint camelcase:false*/
 var webdriverStandalone = require('gulp-protractor').webdriver_standalone;
 var webdriverUpdate = require('gulp-protractor').webdriver_update;
@@ -81,6 +82,22 @@ gulp.task('sass', function() {
     }));
 });
 
+gulp.task('stylus', function() {
+  return gulp.src(config.mainStyl)
+    .pipe($.plumber())
+    .pipe($.stylus({
+			use:nib(),  import: ['nib']
+		}))
+    .on('error', function(err) {
+      console.log(err.message);
+    })
+    .pipe($.plumber.stop())
+    .pipe(gulp.dest(config.tmp))
+    .pipe($.size({
+      title: 'stylus'
+    }))
+});
+
 // inject bower components
 gulp.task('wiredep', function () {
   var wiredep = require('wiredep').stream;
@@ -100,7 +117,8 @@ gulp.task('build:dist', ['clean'], function(cb) {
 
 //build files for development
 gulp.task('build', ['clean'], function(cb) {
-  runSequence(['sass', 'templates','wiredep'], cb);
+  // runSequence(['sass', 'templates','wiredep'], cb);
+  runSequence(['stylus', 'templates','wiredep'], cb);
 });
 
 //generate a minified css files, 2 js file, change theirs name to be unique, and generate sourcemaps
@@ -161,7 +179,7 @@ gulp.task('copy', function() {
 
 //copy html templates in dist folder
 gulp.task('copy:templates', function() {
-  return gulp.src([      
+  return gulp.src([
       config.base + '/modules/**/*.html',
     ]).pipe(gulp.dest(config.dist+'/modules'))
     .pipe($.size({
@@ -231,7 +249,8 @@ gulp.task('serve', ['build'], function() {
   });
 
   gulp.watch(config.html, reload);
-  gulp.watch(config.scss, ['sass', reload]);
+  // gulp.watch(config.scss, ['sass', reload]);
+  gulp.watch(config.styl, ['stylus', reload]);
   gulp.watch(config.js, ['jshint']);
   gulp.watch(config.tpl, ['templates', reload]);
   gulp.watch(config.assets, reload);
@@ -240,7 +259,7 @@ gulp.task('serve', ['build'], function() {
 //run the app packed in the dist folder
 gulp.task('serve:dist', ['build:dist'], function() {
   browserSync({
-    notify: false,    
+    notify: false,
     server: {
       baseDir:  [config.dist],
       middleware: [

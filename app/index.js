@@ -18,10 +18,10 @@ var CgangularGenerator = module.exports = function CgangularGenerator(args, opti
                 marker: cgUtils.JS_MARKER,
                 template: '<script src="<%= filename %>"></script>'
             },
-            scss: {
+            styl: {
                 relativeToModule: true,
-                file: '<%= module %>.scss',
-                marker: cgUtils.SCSS_MARKER,        
+                file: '<%= module %>.styl',
+                marker: cgUtils.STYL_MARKER,
                 template: '@import "<%= filename %>";'
             }
         };

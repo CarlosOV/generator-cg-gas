@@ -10,6 +10,7 @@ var ngParseModule = require('ng-parse-module');
 exports.JS_MARKER = "<!-- Add New Component JS Above -->";
 exports.LESS_MARKER = "/* Add Component LESS Above */";
 exports.SCSS_MARKER = "/* Add Component SCSS Above */";
+exports.STYL_MARKER = "/* Add Component STYL Above */"
 
 exports.ROUTE_MARKER = "/* Add New Routes Above */";
 exports.STATE_MARKER = "/* Add New States Above */";
@@ -136,7 +137,7 @@ exports.askForModule = function(type,that,cb){
         cb.bind(that)(mainModule);
         return;
     }
-    
+
     var choices = _.pluck(modules,'name');
     choices.unshift(mainModule.name + ' (Primary Application Module)');
 
@@ -258,7 +259,7 @@ exports.askForDir = function(type,that,module,ownDir,cb){
 
     };
 
-    if(that.options.defaultDir===undefined) 
+    if(that.options.defaultDir===undefined)
         that.prompt(dirPrompt,dirPromptCallback);
     else {
         that.dir = that.options.defaultDir;

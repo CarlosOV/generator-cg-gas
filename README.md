@@ -1,6 +1,6 @@
 #generator-go-gas
 
->Yeoman Generator for Enterprise Angular Projects with Gulp and Sass
+>Yeoman Generator for Enterprise Angular Projects with Gulp and Stylus
 
 This generator follows the [Angular Best Practice Guidelines for Project Structure](https://docs.google.com/document/d/1XXMvReO8-Awi1EZXAXS4PzDzdNvV6pGcuaF4Q9821Es/pub).
 
@@ -65,7 +65,7 @@ In this example, the user has chosen to group the app into an `admin` folder, a 
       /assets .......................... contains images (not created by default but included in /dist if added) and other resources
     /build .............................
       /dist ............................ folder where entire app packed is profived
-      /tmp ............................. temp folder used for templtates.js and sass -> css file
+      /tmp ............................. temp folder used for templtates.js and stylus -> css file
       build.config.js .................. config file for gulp building process
       karma.config.js .................. config file for gulp unit test process
       protractor.config.js ............. config file for gulp e2e test process
@@ -111,7 +111,7 @@ Yeoman Subgenerators
 
 There are a set of subgenerators to initialize empty Angular components.  Each of these generators will:
 
-* Create one or more skeleton files (javascript, SASS, html, spec etc) for the component type.
+* Create one or more skeleton files (javascript, STYLUS, html, spec etc) for the component type.
 * Update index.html and add the necessary `script` tags.
 * Update app.less and add the @import as needed.
 * For partials, update the app.js, adding the necessary route call if a route was entered in the generator prompts.
